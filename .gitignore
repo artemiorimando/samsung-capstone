@@ -34,8 +34,9 @@ assignments/week-7-initial-github/models
 *.pth
 models
 
-#notebooks/img
+#notebooks
 notebooks/img
+notebooks/Data
 
 # SSH keys
 *.pem
