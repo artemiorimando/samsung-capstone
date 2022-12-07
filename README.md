@@ -24,7 +24,7 @@ machine learning pipeline that seamlessly accepts a slide image as an input and 
 - `deliverables/` contains weekly deliverables related to the progression of this project.
 - `data/` folder (not visible) contains the image data that is saved locally. It is empty as it is good practice to exclude data from
 the repo using a .gitignore file.
-- `notebooks/` contains jupyter notebooks for data science work and training our models. Importantly, it contains [extract-patches.ipynb](notebooks/sjargs-extract-patches.ipynb) to generate image patches and annotation bounding box info from WSIs for model training or running inference. It points to `prework/databases` and the WSI images on your local setup. Refer to [Setup.ipynb](prework/Setup.ipynb) in `prework/` to download the WSI images from figshare (very large files)
+- `notebooks/` contains jupyter notebooks for data science work and training our models. Importantly, it contains [extract-patches.ipynb](notebooks/sjargs-extract-patches.ipynb) to generate image patches and annotation bounding box info from WSIs for model training or running inference. It points to `prework/databases` and the WSI images on your local setup. Refer to [Setup.ipynb](prework/Setup.ipynb) in `prework/` to download the WSI images from figshare (very large files). You will need the sliderunner python package to run this notebook (see `Miscellaneous Files` section)
 - `prework/` contains the [original authors](https://github.com/DeepPathology/MITOS_WSI_CMC/) repo from their [paper](https://www.nature.com/articles/s41597-020-00756-z) that this work is based off of
 - `src/` contains the source code to run our FastAPI web application
 ### src/ Folder Structure
@@ -39,8 +39,9 @@ the repo using a .gitignore file.
     - `def process_result:` generates dictionary of summary statistics
 - `model.py` contains class detection and is called by `process.py`. It provides all the methods for processing the input image, running inference, and generating heatmaps and text explanations
 ### Miscellaneous Files
-- This repo has a `.gitignore` file to remove any local work/data not needed for the repo.
-- This repo has a `requirements.txt` file that matches exactly what was needed to run all code in this repo successfully.
+- `.gitignore` removes local work/data, security keys, etc. that should not be pushed to repo
+- `requirements.txt` lists the package versions for running everything under `src/`
+- To reduce overhead, there is a separate `prework/requirements.txt` for running everything under `prework/` and also [extract-patches.ipynb](notebooks/sjargs-extract-patches.ipynb)
 
 ## How to Run the FastAPI application
 ### Launch FastAPI app locally w/o Docker
